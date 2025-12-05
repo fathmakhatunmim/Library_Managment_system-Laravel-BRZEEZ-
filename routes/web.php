@@ -2,7 +2,7 @@
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AvaliableBookcontroller;
-use App\Http\Controllers\ReviewBookcontroller;
+use App\Http\Controllers\RevieBookController;
 use App\Http\Controllers\issucontroller;
 use App\Http\Controllers\overduecontroller;
 use App\Http\Controllers\reportcontroller;
@@ -25,9 +25,9 @@ Route::middleware('auth')->group(function () {
    Route::get('/avaBook', [DashboardController::class, 'index'])->name('avaBook.index');
 
 
- Route::get('/review-books', [ReviewBookController::class, 'index'])->name('revBook.index');
+ Route::get('/review-books', [RevieBookController::class, 'index'])->name('revBook.index');
 
-Route::post('/review-books', [ReviewBookController::class, 'store'])->name('review.store');
+Route::post('/rbooks', [RevieBookController::class, 'store'])->name('review.store');
 
 
 
