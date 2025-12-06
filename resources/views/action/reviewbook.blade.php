@@ -38,10 +38,10 @@
  <div class="min-h-screen bg-gray-50 p-6">
 
     <!-- Cards Section -->
-    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-1 gap-6 mb-12  ">
+    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-1 gap-6 mb-20  ">
 
         <!-- Card 1 -->
-        <div class="bg-[#DFECDE] shadow-lg p-6 rounded-3xl transform transition-transform hover:scale-105 flex flex-col">
+        <div class="bg-[#DFECDE] shadow-lg p-6 rounded-3xl transform transition-transform hover:scale-105 flex flex-col mb-10">
     <form class="max-w-sm space-y-4" action="{{route('review.store')}}" method="POST">
         @csrf
       <div>
@@ -84,23 +84,45 @@
      
     </div>
 
+
+
     <!-- Available Books Table Section -->
     <h1 class="text-4xl font-bold text-gray-700 mb-6 text-center">Review</h1>
 
     {{-- card --}}
- <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6 mb-12">
+ <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6 mb-12 ">
+
+    @foreach($reviews as $review)
     <div class="overflow-x-auto">
-         <div class="bg-[#FDF2E1] shadow-lg p-6 rounded-3xl transform transition-transform hover:scale-105 flex flex-col items-center text-center">
-            <img src="{{ asset('images/6.png') }}" alt="Available Books" class="w-16 h-16 rounded-full mb-4">
+        <div class="bg-[#FDF2E1] shadow-lg p-6 rounded-3xl 
+     transform transition-transform hover:scale-105 
+     flex flex-col items-center text-center min-h-72 md:min-h-80 lg:min-h-96">
+     
+
+            <img src="{{ asset('images/4.png') }}" alt="Available Books" class="w-16 h-16  mb-4">
+
             <p class="text-gray-700 font-medium text-start">Review Books</p>
-            <h1 class="text-3xl font-bold mb-2">book name</h1>
-            <p class="text-gray-500 text-sm">Author:</p>
-            <p class="text-gray-500 text-sm">ISBN:</p>
-            <p class="text-gray-500 text-sm">Author:</p>
-            <p class="text-gray-500 text-sm">Author:</p>
+
+            <h1 class="text-2xl font-bold mb-2">{{ $review->name }}</h1>
+
+
+            <p class="text-gray-500 text-sm"><strong>Author:</strong>{{$review->author}} </p>
+
+            <p class="text-gray-500 text-sm"><strong>ISBN:</strong>{{$review->isbn}} </p>
+
+            <p class="text-gray-500 text-sm"><strong>Category:</strong> {{ $review->categories }}</p>
+
+            <p class="text-gray-500 text-sm"><strong>Review:</strong> {{ $review->review }}:</p>
+            <br>
+
+             <p class="text-gray-500 text-sm"><strong>{{$review->uname}}</strong> review this book</p>
+
+
+
         </div>
 
     </div>
+    @endforeach
 
 </div>
 

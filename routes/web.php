@@ -30,6 +30,7 @@ Route::middleware('auth')->group(function () {
 Route::post('/rbooks', [RevieBookController::class, 'store'])->name('review.store');
 
 
+Route::post('/review-list', [RevieBookController::class, 'show'])->name('review.show');
 
    
 

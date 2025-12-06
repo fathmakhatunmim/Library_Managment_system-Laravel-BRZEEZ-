@@ -11,7 +11,8 @@ class RevieBookController extends Controller
      */
     public function index()
     {
-        return view('action.reviewbook');
+        $reviews = Review::all();
+    return view('action.reviewbook', compact('reviews'));
     }
 
     /**
@@ -31,7 +32,7 @@ class RevieBookController extends Controller
 
 
         $request->validate([
-             'uname'=>'required|string|max:255',
+        'uname'=>'required|string|max:255',
         'name'=> 'required|string|max:255',
         'author'=> 'required|string|max:255',
         'isbn'=> 'required|string|max:255',
@@ -39,7 +40,7 @@ class RevieBookController extends Controller
         'review'=> 'required|string|max:255'
 
         ]);
-         $review = Review::create([
+         $reviews = Review::create([
 
           'uname'=> $request->uname,
         'name'=> $request->name,
@@ -65,7 +66,8 @@ class RevieBookController extends Controller
      */
     public function show(string $id)
     {
-        //
+         $reviews = Review::all();
+         return view('revBook.index',compact('reviews'));
     }
 
     /**
