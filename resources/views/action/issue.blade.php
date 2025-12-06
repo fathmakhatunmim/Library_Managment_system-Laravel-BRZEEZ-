@@ -35,7 +35,7 @@
 
 @section('content')
 
- {{-- <div class="min-h-screen bg-gray-50 p-6">
+  <div class="min-h-screen bg-gray-50 p-6">
 
     <!-- Cards Section -->
     <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-1 gap-6 mb-20  ">
@@ -87,7 +87,7 @@
 
 
     <!-- Available Books Table Section -->
-    <h1 class="text-4xl font-bold text-gray-700 mb-6 text-center">Review</h1>
+    <h1 class="text-4xl font-bold text-gray-700 mb-6 text-center">profile</h1>
 
     {{-- card --}}
  {{-- ><div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6 mb-12 ">

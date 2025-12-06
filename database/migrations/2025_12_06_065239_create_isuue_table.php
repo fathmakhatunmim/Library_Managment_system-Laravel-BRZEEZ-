@@ -13,6 +13,7 @@ return new class extends Migration
     {
         Schema::create('issue', function (Blueprint $table) {
             $table->id();
+            
             $table->string('uname');
             $table->string('T_I_A');
             $table->date('issue_date');
