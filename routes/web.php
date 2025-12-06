@@ -3,7 +3,7 @@ use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AvaliableBookcontroller;
 use App\Http\Controllers\RevieBookController;
-use App\Http\Controllers\issucontroller;
+use App\Http\Controllers\IssueController;
 use App\Http\Controllers\overduecontroller;
 use App\Http\Controllers\reportcontroller;
 use App\Http\Controllers\writtereviewcontroller;
@@ -34,6 +34,7 @@ Route::post('/review-list', [RevieBookController::class, 'show'])->name('review.
 
    
 
+   Route::get('/issue', [ IssueController  ::class, 'index'])->name('issue.index');
 
 
  Route::resource('revBook', writtereviewcontroller::class);
@@ -41,7 +42,6 @@ Route::post('/review-list', [RevieBookController::class, 'show'])->name('review.
 
 
 
-   Route::get('/issue', [issucontroller::class, 'index'])->name('issue.index');
     
    Route::get('/over', [overduecontroller::class, 'index'])->name('over.index');
     
