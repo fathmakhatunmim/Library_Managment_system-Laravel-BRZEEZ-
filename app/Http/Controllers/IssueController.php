@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
+use Carbon\Carbon;
 use App\Models\Issue;
 use Illuminate\Http\Request;
 
@@ -11,8 +12,16 @@ class IssueController extends Controller
      */
     public function index()
     {
+
+          $today = Carbon::today();  // আজকের তারিখ
+
+    // শুধু overdue books আলাদা করতে চাইলে
+    $overdueBooks = Issue::where('Due_date', '<', $today)->get();
+
+
          $reviews = Issue::all();
-         return view('action.issue', compact('reviews'));
+
+         return view('action.issue', compact('reviews','today', 'overdueBooks'));
     }
 
     /**

@@ -100,7 +100,7 @@
 <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-2 gap-8 mb-12">
 
     @foreach($reviews as $issue)
-<div class="bg-white shadow-lg rounded-3xl p-6 transform hover:scale-105 transition duration-300 border border-gray-200">
+<div class="bg-[#F1E7FA] shadow-lg rounded-3xl p-6 transform hover:scale-105 transition duration-300 border border-gray-200">
     <div class="flex flex-col md:flex-row items-center md:items-start gap-6">
 
         {{-- Image --}}
@@ -133,7 +133,11 @@
 
             {{-- Status Badge --}}
             <div class="mt-4">
-                <span class="px-4 py-1 text-xs bg-green-100 text-green-700 rounded-full">Issued</span>
+                  @if(\Carbon\Carbon::parse($issue->Due_date)->lt(\Carbon\Carbon::today()))
+                            <span class="px-4 py-1 text-xs bg-red-100 text-red-700 rounded-full">Overdue</span>
+                        @else
+                            <span class="px-4 py-1 text-xs bg-green-100 text-green-700 rounded-full">Issued</span>
+                        @endif
             </div>
         </div>
 

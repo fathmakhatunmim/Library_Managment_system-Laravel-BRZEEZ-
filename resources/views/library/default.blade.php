@@ -50,11 +50,11 @@
             <img src="{{ asset('images/4.png') }}" class="w-7 h-7 mr-2"> Review Book
         </a>
         <a href="{{ route('issue.index') }}" class="sidebar-link">
-            <img src="{{ asset('images/5.png') }}" class="w-7 h-7 mr-2"> Issue Return
+            <img src="{{ asset('images/5.png') }}" class="w-7 h-7 mr-2"> Issue Return/ Overdue Books
         </a>
-        <a href="{{ route('over.index') }}" class="sidebar-link">
+        {{-- <a href="{{ route('over.index') }}" class="sidebar-link">
             <img src="{{ asset('images/7.png') }}" class="w-7 h-7 mr-2"> Overdue Books
-        </a>
+        </a> --}}
         <a href="{{ route('report.index') }}" class="sidebar-link">
             <img src="{{ asset('images/2.png') }}" class="w-7 h-7 mr-2"> Report & Analysis
         </a>

@@ -14,7 +14,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/dashboard', [DashboardController::class, 'index'])->middleware(['auth', 'verified']);
+Route::get('/dashboard', [DashboardController::class, 'index'])->middleware(['auth', 'verified'])->name('dashboard');;
 
 
 Route::middleware('auth')->group(function () {
@@ -24,6 +24,7 @@ Route::middleware('auth')->group(function () {
 
    Route::get('/avaBook', [DashboardController::class, 'index'])->name('avaBook.index');
 
+  
 
  Route::get('/review-books', [RevieBookController::class, 'index'])->name('revBook.index');
 
