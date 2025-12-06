@@ -8,6 +8,7 @@ return new class extends Migration
 {
     /**
      * Run the migrations.
+     * php artisan make:migration add_image_to_issues_table --table=issues
      */
     public function up(): void
     {

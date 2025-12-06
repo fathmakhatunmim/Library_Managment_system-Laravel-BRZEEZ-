@@ -34,7 +34,10 @@ Route::post('/review-list', [RevieBookController::class, 'show'])->name('review.
 
    
 
-   Route::get('/issue', [ IssueController  ::class, 'index'])->name('issue.index');
+      Route::get('/issue', [ IssueController  ::class, 'index'])->name('issue.index');
+     Route::POST('/issue-store', [ IssueController  ::class, 'store'])->name('issue.store');
+
+ Route::post('/issue-list', [IssueController ::class, 'show'])->name('issue.show');
 
 
  Route::resource('revBook', writtereviewcontroller::class);

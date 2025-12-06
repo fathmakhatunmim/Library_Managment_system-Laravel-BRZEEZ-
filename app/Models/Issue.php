@@ -15,6 +15,8 @@ class Issue extends Model
         'T_I_A',
         'issue_date',
         'Due_date',
-         'note'
+         'note',
+         'image'
+
     ];
 }

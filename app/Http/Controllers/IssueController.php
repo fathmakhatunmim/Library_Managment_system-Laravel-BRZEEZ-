@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use App\Models\Issue;
 use Illuminate\Http\Request;
 
 class IssueController extends Controller
@@ -11,7 +11,8 @@ class IssueController extends Controller
      */
     public function index()
     {
-        return view('action.issue');
+         $reviews = Issue::all();
+         return view('action.issue', compact('reviews'));
     }
 
     /**
@@ -27,7 +28,41 @@ class IssueController extends Controller
      */
     public function store(Request $request)
     {
-        //
+
+       
+         $request->validate([
+        'uname' => 'required|string|max:255',
+        'T_I_A' => 'required|string|max:255',
+        'issue_date' => 'required|date',
+        'Due_date' => 'required|date',
+        'note' => 'nullable|string|max:1000',
+         'image' => 'image|mimes:jpg,jpeg,png,webp|max:2048',
+    ]);
+       
+        $imageName = null;
+    if ($request->hasFile('image')) {
+        $imageName = time() . '.' . $request->image->extension();
+        $request->image->move(public_path('uploads/issue_images'), $imageName);
+    }
+
+
+
+
+
+    // Create issue record
+    $issue = Issue::create([
+        'uname' => $request->uname,
+        'T_I_A' => $request->T_I_A,
+        'issue_date' => $request->issue_date,
+        'Due_date' => $request->Due_date,
+        'note' => $request->note,
+        'image' => $imageName,
+
+    ]);
+
+    // dd($issue);
+
+    return redirect()->back()->with('success', 'Book issued successfully!');
     }
 
     /**
