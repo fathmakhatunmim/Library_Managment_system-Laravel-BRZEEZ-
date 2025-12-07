@@ -38,59 +38,64 @@
   <div class="min-h-screen bg-gray-50 p-6">
 
     <!-- Cards Section -->
-    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-1 gap-6 mb-20  ">
+    <div class="flex justify-center mt-16 mb-20">
+    <div class="w-full max-w-lg bg-[#DFECDE] shadow-lg p-8 rounded-3xl transform transition-transform hover:scale-105">
+        <form action="{{ route('issue.store') }}" method="POST" enctype="multipart/form-data" class="space-y-5">
+            @csrf
 
-        <!-- Card 1 -->
-        <div class="bg-[#DFECDE] shadow-lg p-6 rounded-3xl transform transition-transform hover:scale-105 flex flex-col mb-10">
-    <form class="max-w-sm space-y-4" action="{{route('issue.store')}}" method="POST" enctype="multipart/form-data">
-        @csrf
+            <!-- Upload File -->
+            <div>
+                <label for="file_input" class="block mb-2 text-sm font-medium text-gray-700">Upload file</label>
+                <input type="file" name="image" id="file_input"
+                    class="w-full h-10 cursor-pointer bg-white border border-gray-300 text-gray-900 text-sm rounded-xl shadow-sm focus:ring-2 focus:ring-yellow-400 focus:border-yellow-400">
+                <p class="mt-1 text-sm text-gray-600">SVG, PNG, JPG or GIF (MAX. 800x400px).</p>
+            </div>
 
-    <div>
-    <label class="block mb-2.5 text-sm font-medium text-heading" for="file_input">Upload file</label>
-    <input class="w-300 cursor-pointer bg-neutral-secondary-medium border border-default-medium text-heading text-sm rounded-base  focus:ring-brand focus:border-brand block h-10  shadow-xs placeholder:text-body" aria-describedby="file_input_help" id="file_input" type="file" name="image">
-     <p class="mt-1 text-sm text-gray-800 dark:text-gray-500" id="file_input_help">SVG, PNG, JPG or GIF (MAX. 800x400px).</p>
+            <!-- User Name -->
+            <div>
+                <label for="uname" class="block mb-2 text-sm font-medium text-gray-700">User Name</label>
+                <input type="text" id="uname" name="uname" placeholder="Enter your name" required
+                    class="w-full px-4 py-2 text-sm rounded-xl border border-gray-300 focus:ring-2 focus:ring-yellow-400 focus:border-yellow-400 bg-white text-gray-900 shadow-sm">
+            </div>
+
+            <!-- Book Name -->
+            <div>
+                <label for="T_I_A" class="block mb-2 text-sm font-medium text-gray-700">Book Name</label>
+                <input type="text" id="T_I_A" name="T_I_A" placeholder="Enter book name" required
+                    class="w-full px-4 py-2 text-sm rounded-xl border border-gray-300 focus:ring-2 focus:ring-yellow-400 focus:border-yellow-400 bg-white text-gray-900 shadow-sm">
+            </div>
+
+            <!-- Issue Date -->
+            <div>
+                <label for="issue_date" class="block mb-2 text-sm font-medium text-gray-700">Issue Date</label>
+                <input type="date" id="issue_date" name="issue_date" required
+                    class="w-full px-4 py-2 text-sm rounded-xl border border-gray-300 focus:ring-2 focus:ring-yellow-400 focus:border-yellow-400 bg-white text-gray-900 shadow-sm">
+            </div>
+
+            <!-- Due Date -->
+            <div>
+                <label for="Due_date" class="block mb-2 text-sm font-medium text-gray-700">Due Date</label>
+                <input type="date" id="Due_date" name="Due_date" required
+                    class="w-full px-4 py-2 text-sm rounded-xl border border-gray-300 focus:ring-2 focus:ring-yellow-400 focus:border-yellow-400 bg-white text-gray-900 shadow-sm">
+            </div>
+
+            <!-- Note -->
+            <div>
+                <label for="note" class="block mb-2 text-sm font-medium text-gray-700">Note (Optional)</label>
+                <textarea id="note" name="note" rows="4" placeholder="Write your thoughts here..."
+                    class="w-full px-4 py-3 text-sm rounded-xl border border-gray-300 focus:ring-2 focus:ring-yellow-400 focus:border-yellow-400 bg-white text-gray-900 shadow-sm resize-none"></textarea>
+            </div>
+
+            <!-- Submit Button -->
+            <div class="text-center">
+                <button type="submit"
+                    class="px-6 py-2 bg-yellow-500 text-white font-semibold rounded-xl shadow hover:bg-yellow-600 transition-all duration-300">
+                    Submit
+                </button>
+            </div>
+        </form>
     </div>
-    
-
-
-
-      <div>
-        <label for="visitors" class="block mb-2.5 text-sm font-medium text-heading ">User Name</label>
-        <input type="text" id="visitors" class="bg-neutral-secondary-medium border border-default-medium text-heading   text-sm rounded-base focus:ring-brand focus:border-brand block w-300 px-2.5 py-2 shadow-xs placeholder:text-body " name="uname" placeholder="" required />
-    </div>
-    
-        <div>
-        <label for="visitors" class="block mb-2.5 text-sm font-medium text-heading ">Book Name</label>
-        <input type="text" id="visitors" class="bg-neutral-secondary-medium border border-default-medium text-heading   text-sm rounded-base focus:ring-brand focus:border-brand block w-300 px-2.5 py-2 shadow-xs placeholder:text-body " name="T_I_A" placeholder="" required />
-    </div>
-
-
-
-    <div>
-        <label for="visitors" class="block mb-2.5 text-sm font-medium text-heading">	issue_date	</label>
-        <input type="date" id="visitors" class="bg-neutral-secondary-medium border border-default-medium text-heading text-sm rounded-base focus:ring-brand focus:border-brand block w-300 px-3 py-2.5 shadow-xs placeholder:text-body" name="issue_date"   placeholder="" required />
-    </div>
-
-     <div>
-        <label for="visitors" class="block mb-2.5 text-sm font-medium text-heading">		Due_date</label>
-        <input type="date" id="visitors" class="bg-neutral-secondary-medium border border-default-medium text-heading text-sm rounded-base focus:ring-brand focus:border-brand block w-300 px-3 py-2.5 shadow-xs placeholder:text-body" name="Due_date"   placeholder="" required />
-    </div>
-    <div>
-        <label for="message" class="block mb-2.5 text-sm font-medium text-heading">Note(Optional)</label>
-        <textarea id="message" rows="4" class="bg-neutral-secondary-medium border border-default-medium text-heading text-sm rounded-base focus:ring-brand focus:border-brand block w-300 p-3.5 shadow-xs placeholder:text-body" name="note" placeholder="Write your thoughts here..."></textarea>
-
-        </div>
- <button type="submit" class="btn">Submit</button>
-        <!-- Card 2 -->
-       
-
-        <!-- Card 3 -->
-     
-
-        <!-- Card 4 -->
-     
-    </div>
-
+</div>
 
 
     <!-- Available Books Table Section -->
@@ -132,6 +137,21 @@
             </div>
 
             {{-- Status Badge --}}
+            {{-- ১. \Carbon\Carbon::parse($issue->Due_date)
+
+ডাটাবেজে যেই Due_date আছে, সেটাকে Carbon তারিখে রূপান্তর করছে।
+
+উদাহরণ: "2025-12-10" ➝ Carbon object
+
+✔️ ২. \Carbon\Carbon::today()
+
+আজকের তারিখ নিচ্ছে।
+
+উদাহরণ: "2025-12-07"
+
+✔️ ৩. .lt()
+
+lt = less than মানে ছোট কিনা (এর আগে) --}}
             <div class="mt-4">
                   @if(\Carbon\Carbon::parse($issue->Due_date)->lt(\Carbon\Carbon::today()))
                             <span class="px-4 py-1 text-xs bg-red-100 text-red-700 rounded-full">Overdue</span>

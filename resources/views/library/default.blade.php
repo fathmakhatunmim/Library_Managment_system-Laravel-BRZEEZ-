@@ -43,6 +43,9 @@
 
     {{-- Sidebar --}}
     <div class="w-80 bg-[#1E1B1C] p-6 flex flex-col space-y-4">
+        <a href="{{ route('profile.edit') }}" class="sidebar-link">
+            <img src="{{ asset('images/person.png') }}" class="w-8 h-8 mr-2"> Profile
+        </a>
         <a href="{{ route('avaBook.index') }}" class="sidebar-link">
             <img src="{{ asset('images/1.png') }}" class="w-7 h-7 mr-2"> Dashboard
         </a>

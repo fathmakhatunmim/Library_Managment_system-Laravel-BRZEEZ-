@@ -16,7 +16,7 @@ class IssueController extends Controller
           $today = Carbon::today();  // আজকের তারিখ
 
     // শুধু overdue books আলাদা করতে চাইলে
-    $overdueBooks = Issue::where('Due_date', '<', $today)->get();
+        $overdueBooks = Issue::where('Due_date', '<', $today)->get();
 
 
          $reviews = Issue::all();
@@ -55,7 +55,7 @@ class IssueController extends Controller
     }
 
 
-
+  
 
 
     // Create issue record
